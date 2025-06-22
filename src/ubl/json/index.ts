@@ -7,3 +7,4 @@ export * from "./selfBilledCreditNote";
 export * from "./selfBilledDebitNote";
 export * from "./selfBilledInvoice";
 export * from "./selfBilledRefundNote";
+export * from "./ubl_json";

@@ -94,9 +94,13 @@ export class AuthService {
     }
 
     try {
-      await this.redisClient.set(key, JSON.stringify(tokenDataToCache), {
-        EX: redisTTL,
-      });
+      // Use ioredis syntax: set(key, value, 'EX', seconds)
+      await this.redisClient?.set(
+        key,
+        JSON.stringify(tokenDataToCache),
+        "EX",
+        redisTTL
+      );
       // console.debug(`AuthService: Token stored/updated in Redis for key ${key} with TTL ${redisTTL}s`);
     } catch (error) {
       console.error(

@@ -42,11 +42,7 @@ export interface MyInvoisGenericApiResponseError {
 
 export interface MyInvoisRedisClient {
   get(key: string): Promise<string | null>;
-  set(
-    key: string,
-    value: string,
-    commandOptions?: { EX: number } /* TTL in seconds */
-  ): Promise<unknown>; // Return type can vary
+  set(key: string, value: string, ...args: any[]): Promise<unknown>; // Return type can vary
 }
 
 // Structure of the data to be stored in Redis
